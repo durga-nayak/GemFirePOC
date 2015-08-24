@@ -1,0 +1,7 @@
+git init .
+git config --global user.name "durga-nayak"
+git config --global user.email "hapi.durga@gmail.com"
+git add .
+git commit -m "first commit"
+git remote add gemfirepoc https://github.com/durga-nayak/GemFirePOC.git
+git push -u gemfirepoc master
