@@ -9,24 +9,18 @@
     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-
- <!-- <gfe:client-cache id="gemfireCache" pool-name="pool" cache-xml-location="cache.xml"/> -->
-  <gfe:client-cache id="gemfireCache" pool-name="gemfire-pool" />
+  <gfe:client-cache id="gemfireCache" pool-name="gemfire-pool" ready-for-events="true" />
 
   <gfe:pool id="gemfire-pool" subscription-enabled="true" server-group="groupmTax" >
- 	 <gfe:server host="11.160.3.58" port="2003"/>
-    <!-- <gfe:locator host="11.160.3.58" port="10334"/>-->
+ 	 <!--<gfe:server host="11.160.3.58" port="2003"/>-->
+     <gfe:locator host="11.160.3.58" port="10334"/>
  </gfe:pool>   
-  <!--<gfe:replicated-region id="mtaxRegion">
- 	 <gfe:cache-listener>
+
+  <gfe:client-region id="mtaxRegion" data-policy="EMPTY" pool-name="gemfire-pool"  cloning-enabled="true" statistics="true" concurrency-checks-enabled="true">
+      <gfe:cache-listener>
          <bean class="com.poc.test.GemfireListener"/>
-     </gfe:cache-listener>
- </gfe:replicated-region>-->
- <gfe:client-region id="mtaxRegion"  pool-name="gemfire-pool">
-     <gfe:cache-listener>
-         <bean class="com.poc.test.GemfireListener"/>
-     </gfe:cache-listener>
- </gfe:client-region> 
+     </gfe:cache-listener><!-- -->
+ </gfe:client-region>
 
     <bean id="gemfireTemplate" class="org.springframework.data.gemfire.GemfireTemplate" p:region-ref="mtaxRegion"/>
  

@@ -64,15 +64,22 @@ public void listenSocket() throws IOException{
 				String arr[] =appCtx.getBeanDefinitionNames();
 				GemfireTemplate gemfireTemplate = (GemfireTemplate) appCtx.getBean("gemfireTemplate");
 //				gemfireTemplate.getRegion().put(Thread.currentThread().getId(), Thread.currentThread().getName());
+				System.out.println("");
 				gemfireTemplate.getRegion().put("Durga", "Nayak");
-				//String object = (String) gemfireTemplate.getRegion().get(Thread.currentThread().getId());
-				//String object = (String) gemfireTemplate.getRegion().get("Durga");
-				//System.out.println(">>>>>>>>>>>>>" + object);
-				Set<Entry<Object, Object>> entrySet = gemfireTemplate.getRegion().entrySet();
-				for (Entry<Object, Object> entry:entrySet) {
-					System.out.println(entry.getKey());
-					System.out.println(entry.getValue());
-				}
+				System.out.println(gemfireTemplate.getRegion().getAttributes());
+				System.out.println(gemfireTemplate.getRegion().get("Durga"));
+
+//				gemfireTemplate.getRegion().put("Ankush", "Bankush");
+//				gemfireTemplate.getRegion().remove("Durga");
+//				gemfireTemplate.getRegion().remove("Ankush");
+//				//String object = (String) gemfireTemplate.getRegion().get(Thread.currentThread().getId());
+//				//String object = (String) gemfireTemplate.getRegion().get("Durga");
+//				//System.out.println(">>>>>>>>>>>>>" + object);
+//				Set<Entry<Object, Object>> entrySet = gemfireTemplate.getRegion().entrySet();
+//				for (Entry<Object, Object> entry:entrySet) {
+//					System.out.println(entry.getKey());
+//					System.out.println(entry.getValue());
+//				}
 			}
 		});
 		thread.start();
