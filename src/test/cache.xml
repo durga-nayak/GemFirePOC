@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cache PUBLIC
+    "-//GemStone Systems, Inc.//GemFire Declarative Caching 8.0//EN"
+    "http://www.gemstone.com/dtd/gfcpp-cache8000.dtd">
+<!-- Sample cache.xml file -->
+<!-- Example Declarative Cache Initialization with cache.xml -->
+<client-cache>
+  <pool name="client" subscription-enabled="true">
+    <locator host="11.160.3.58" port="10334" />
+  </pool>
+  <region name="mtaxRegion">
+    <region-attributes refid="CACHING_PROXY">
+      <entry-idle-time>
+        <expiration-attributes timeout="3600" action="destroy" />
+      </entry-idle-time>
+    </region-attributes>
+  </region>
+</client-cache>

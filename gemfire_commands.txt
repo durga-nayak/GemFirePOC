@@ -1,0 +1,5 @@
+start locator --name=locatorpoc
+start server --name=serverpoc --group=grouppoc --server-port=2004
+create region --name=regionpoc --group=grouppoc --type=REPLICATE
+
+put --region=regionpoc --key="1" --value="one"
