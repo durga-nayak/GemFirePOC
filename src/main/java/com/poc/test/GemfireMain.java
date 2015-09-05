@@ -15,11 +15,8 @@ import java.util.Set;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.gemfire.GemfireTemplate;
 
-<<<<<<< HEAD
 import com.gemstone.gemfire.cache.InterestResultPolicy;
 
-=======
->>>>>>> 74b433d5fa28c8ee04e0e0b0c63db56c9f893ff0
 /**
  * @author NAYAKDUR
  *
@@ -70,10 +67,7 @@ public void listenSocket() throws IOException{
 				GemfireTemplate gemfireTemplate = (GemfireTemplate) appCtx.getBean("gemfireTemplate");
 //				gemfireTemplate.getRegion().put(Thread.currentThread().getId(), Thread.currentThread().getName());
 				System.out.println("");
-<<<<<<< HEAD
 				gemfireTemplate.getRegion().registerInterest("ALL_KEYS", InterestResultPolicy.KEYS); 
-=======
->>>>>>> 74b433d5fa28c8ee04e0e0b0c63db56c9f893ff0
 				gemfireTemplate.getRegion().put("Durga", "Nayak");
 				System.out.println(gemfireTemplate.getRegion().getAttributes());
 				System.out.println(gemfireTemplate.getRegion().get("Durga"));
